@@ -56,14 +56,10 @@ const MenuDetail = React.createClass({
     render() {
         return (
         <Card>
-            <AppBar title="Menu Item"
-                iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-                iconElementRight={
-                <IconMenu iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}>
-                    <MenuItem primaryText="Refresh" />
-                    <MenuItem primaryText="Help" />
-                    <MenuItem primaryText="Sign out" />
-                </IconMenu>} />
+
+            <AppBar title="Title"
+                iconClassNameRight="muidocs-icon-navigation-expand-more" />
+
             <CardMedia>
                 <img src="http://lorempixel.com/600/337/nature/"/>
             </CardMedia>
@@ -84,3 +80,4 @@ const MenuDetail = React.createClass({
 });
 
 module.exports = MenuDetail;
+
