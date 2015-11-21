@@ -54,21 +54,22 @@ const MenuDetail = React.createClass({
     },
 
     render() {
+        //  Render the menu item detail.  this.props.data contains:
+        //  { data=[ {label, label2, label3, image, ...} ], modifiers=[ ... ] }
+        var dataRecord = this.props.data.data[0];
+        console.log("status=", this.props.data.status);
         return (
         <Card>
-
-            <AppBar title="Title"
+            <AppBar title={ dataRecord.label }
                 iconClassNameRight="muidocs-icon-navigation-expand-more" />
-
             <CardMedia>
-                <img src="http://lorempixel.com/600/337/nature/"/>
+                <img src={ dataRecord.image } />
             </CardMedia>
-            <CardHeader title="Menu Item"
-                  subtitle="Subtitle"
-                  avatar={<Avatar>A12</Avatar>} />
+            <CardHeader title={ dataRecord.label }
+                  subtitle={ dataRecord.label2 } />
             <CardText>
-                <p>Description</p>
-                <Modifiers />
+                <p>{ dataRecord.label3 }</p>
+                <Modifiers data={ this.props.data.modifiers } />
             </CardText>
         </Card>);
     },

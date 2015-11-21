@@ -47,16 +47,23 @@ const RadioGroup = React.createClass({
     },
 
     render() {
+        //  Render the group of radio buttons.  this.props.data contains:
+        //  { id, label, select_min, select_max, options: [ { id, label, value, postback }, ... ] }
+        var dataRecord = this.props.data;
+        var valueSelected = null;
+        var optionNodes = dataRecord.options.map(function (option) {
+            console.log(option.id, option.label, option.value);
+            if (option.value == true) valueSelected = option.id;
+            return (<RadioButton value={ option.id } label={ option.label } style={{marginBottom:16}} />);
+        });
         return (
         <Card>
-            <CardHeader title="Title"
-                  subtitle="Subtitle"
-                  avatar={<Avatar>A12</Avatar>} />
+            <CardHeader title={ dataRecord.label }
+                  subtitle={ "Select min " + dataRecord.select_min + ", max " + dataRecord.select_max }
+                  avatar={<Avatar>{ this.props.index }</Avatar>} />
             <CardText>
-                <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
-                    <RadioButton value="light" label="My text" style={{marginBottom:16}} />
-                    <RadioButton value="not_light" label="light speed too slow" style={{marginBottom:16}} />
-                    <RadioButton value="ludicrous" label="go to ludicrous speed" style={{marginBottom:16}} />
+                <RadioButtonGroup name={ dataRecord.id } valueSelected={ valueSelected } >
+                    { optionNodes }
                 </RadioButtonGroup>
             </CardText>
         </Card>);

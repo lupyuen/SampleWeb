@@ -50,11 +50,15 @@ const Modifiers = React.createClass({
     },
 
     render() {
+        //  Render the list of Modifiers for the menu item.  this.props.data contains:
+        //  [ optionGroup1, optionGroup2, ... ]
+        var index = 0;
+        var modifierNodes = this.props.data.map(function (optionGroup) {
+            return (<RadioGroup index={ index++ } data={ optionGroup } />);
+        });
         return (
         <div>
-            <RadioGroup />
-            <RadioGroup />
-            <RadioGroup />
+            { modifierNodes }
         </div>);
 },
 
