@@ -30261,14 +30261,23 @@ const RadioGroup = React.createClass({
         //  { id, label, select_min, select_max, options: [ { id, label, value, postback }, ... ] }
         var dataRecord = this.props.data;
         var valueSelected = null;
+
+        var marker = ".....";
+        var code = JSON.parse(JSON.stringify(dataRecord));
+        code.options[0] = marker;
+        code.options[code.options.length - 1] = marker;
+        code = JSON.stringify(code, null, 2);
+        var pos = code.indexOf(marker);
+        var codeBegin = code.substr(0, pos - 1) + marker;
+        var pos = code.indexOf(marker, pos + marker.length);
+        var codeEnd = marker + code.substr(pos + marker.length + 1);
+
         var optionNodes = dataRecord.options.map(function (option) {
-            var code = JSON.stringify(option, null, 2);
+            var code2 = JSON.stringify(option, null, 2);
             if (option.value == true) valueSelected = option.id;
             return React.createElement(
                 RadioButton,
-                { value: option.id,
-                    label: '',
-                    style: { marginBottom: 16 } },
+                { value: option.id, label: '', style: { marginBottom: 16 } },
                 React.createElement(
                     'div',
                     { style: { position: "relative", top: "40px", left: "50px" } },
@@ -30280,7 +30289,7 @@ const RadioGroup = React.createClass({
                     React.createElement(
                         'code',
                         { 'class': 'json' },
-                        code
+                        code2
                     )
                 )
             );
@@ -30299,9 +30308,27 @@ const RadioGroup = React.createClass({
                 CardText,
                 null,
                 React.createElement(
+                    'pre',
+                    null,
+                    React.createElement(
+                        'code',
+                        { 'class': 'json' },
+                        codeBegin
+                    )
+                ),
+                React.createElement(
                     RadioButtonGroup,
                     { name: dataRecord.id, valueSelected: valueSelected },
                     optionNodes
+                ),
+                React.createElement(
+                    'pre',
+                    null,
+                    React.createElement(
+                        'code',
+                        { 'class': 'json' },
+                        codeEnd
+                    )
                 )
             )
         );

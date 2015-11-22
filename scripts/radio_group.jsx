@@ -51,19 +51,27 @@ const RadioGroup = React.createClass({
         //  { id, label, select_min, select_max, options: [ { id, label, value, postback }, ... ] }
         var dataRecord = this.props.data;
         var valueSelected = null;
+
+        var marker = ".....";
+        var code = JSON.parse(JSON.stringify(dataRecord));
+        code.options[0] = marker;
+        code.options[code.options.length - 1] = marker;
+        code = JSON.stringify(code, null, 2);
+        var pos = code.indexOf(marker);
+        var codeBegin = code.substr(0, pos - 1) + marker;
+        var pos = code.indexOf(marker, pos + marker.length);
+        var codeEnd = marker + code.substr(pos + marker.length + 1);
+
         var optionNodes = dataRecord.options.map(function (option) {
-            var code = JSON.stringify(option, null, 2);
+            var code2 = JSON.stringify(option, null, 2);
             if (option.value == true) valueSelected = option.id;
             return (
-            <RadioButton value={ option.id } 
-                            label=""
-                            style={{marginBottom: 16}}>
+            <RadioButton value={ option.id } label="" style={{marginBottom: 16}}>
                 <div style={{position: "relative", top: "40px", left: "50px"}}>
                     { option.label + (option.postback ? " (postback)" : "") }
                 </div>
-                <pre><code class="json">{ code }</code></pre>
-            </RadioButton>
-            );
+                <pre><code class="json">{ code2 }</code></pre>
+            </RadioButton>);
         });
         return (
         <Card>
@@ -71,9 +79,11 @@ const RadioGroup = React.createClass({
                   subtitle={ "Select min " + dataRecord.select_min + ", max " + dataRecord.select_max }
                   avatar={<Avatar>{ this.props.index }</Avatar>} />
             <CardText>
+                <pre><code class="json">{ codeBegin }</code></pre>
                 <RadioButtonGroup name={ dataRecord.id } valueSelected={ valueSelected }>
                     { optionNodes }
                 </RadioButtonGroup>
+                <pre><code class="json">{ codeEnd }</code></pre>
             </CardText>
         </Card>);
         },
