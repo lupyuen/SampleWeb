@@ -52,9 +52,15 @@ const RadioGroup = React.createClass({
         var dataRecord = this.props.data;
         var valueSelected = null;
         var optionNodes = dataRecord.options.map(function (option) {
-            console.log(option.id, option.label, option.value);
+            var code = JSON.stringify(option, null, 2);
             if (option.value == true) valueSelected = option.id;
-            return (<RadioButton value={ option.id } label={ option.label } style={{marginBottom:16}} />);
+            return (
+            <RadioButton value={ option.id } 
+                            label={ option.label + (option.postback ? " (postback)" : "") } 
+                            style={{marginBottom:16}}>
+                <pre><code class="json">{ code }</code></pre>
+            </RadioButton>
+            );
         });
         return (
         <Card>
@@ -62,7 +68,7 @@ const RadioGroup = React.createClass({
                   subtitle={ "Select min " + dataRecord.select_min + ", max " + dataRecord.select_max }
                   avatar={<Avatar>{ this.props.index }</Avatar>} />
             <CardText>
-                <RadioButtonGroup name={ dataRecord.id } valueSelected={ valueSelected } >
+                <RadioButtonGroup name={ dataRecord.id } valueSelected={ valueSelected }>
                     { optionNodes }
                 </RadioButtonGroup>
             </CardText>

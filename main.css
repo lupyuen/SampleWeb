@@ -1,8 +1,16 @@
-﻿html {
+﻿@import url(//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+html {
   font-family: 'Roboto', sans-serif;
 }
 
 body {
   font-size: 13px;
   line-height: 20px;
+}
+
+pre code {
+  font: normal 10pt Ubuntu Mono;
+  width: 300px;
+  max-height: 300px;
 }

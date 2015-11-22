@@ -95,6 +95,268 @@ process.umask = function() { return 0; };
 "use strict";
 
 (function () {
+
+    var data = {
+        "status": "SUCCESS",
+        "message": ["SUCCESS"],
+        "data": [{
+            "id": "613",
+            "product_id": "613",
+            "outlet": "kmcafe",
+            "type": "item",
+            "image": "https://d21lq3parp0dpw.cloudfront.net/media/catalog/product/cache/1/small_image/500x500/040ec09b1e35df139433887a97daa66f/images/catalog/product/placeholder/small_image.jpg",
+            "label": "Mushroom Melt Burger",
+            "label2": "$9.00",
+            "label3": ".",
+            "quantity": null,
+            "button": "Add To Cart",
+            "value": 9
+        }],
+        "modifiers": [{
+            "id": "automatedtest01installationid2_613__52",
+            "type": "radio",
+            "image": "http://image.jpg",
+            "label": "Meat Temp",
+            "select_min": 1,
+            "select_max": 1,
+            "options": [{
+                "id": "fmod179",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Well",
+                "value": true,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }, {
+                "id": "fmod178",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Medium Well",
+                "value": false,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }, {
+                "id": "fmod176",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Medium Rare",
+                "value": false,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }, {
+                "id": "fmod177",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Medium",
+                "value": false,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }, {
+                "id": "fmod175",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Rare",
+                "value": false,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }],
+            "_id2": "l52",
+            "_label": "ForcedModifierList"
+        }, {
+            "id": "automatedtest01installationid2_613__21",
+            "type": "radio",
+            "image": "http://image.jpg",
+            "label": "Burger/Sand Mods",
+            "select_min": 1,
+            "select_max": 1,
+            "options": [{
+                "id": "fmod54",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Bistro Sauce",
+                "value": true,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }, {
+                "id": "fmod55",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Ketchup",
+                "value": false,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }, {
+                "id": "fmod56",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Mayo",
+                "value": false,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }, {
+                "id": "fmod50",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Lettuce",
+                "value": false,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }, {
+                "id": "fmod51",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Tomato",
+                "value": false,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }, {
+                "id": "fmod52",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Onion",
+                "value": false,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }, {
+                "id": "fmod53",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Pickle",
+                "value": false,
+                "postback": false,
+                "_label": "ForcedModifier"
+            }],
+            "_id2": "l21",
+            "_label": "ForcedModifierList"
+        }, {
+            "id": "automatedtest01installationid2_613__55",
+            "type": "radio",
+            "image": "http://image.jpg",
+            "label": "Combo?",
+            "select_min": 1,
+            "select_max": 1,
+            "options": [{
+                "id": "fmod188",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "No",
+                "value": true,
+                "postback": true,
+                "_label": "ForcedModifier"
+            }, {
+                "id": "fmod187",
+                "type": "radio",
+                "image": "http://image.jpg",
+                "label": "Yes",
+                "value": false,
+                "postback": true,
+                "_label": "ForcedModifier",
+                "_detour": "g20"
+            }],
+            "_id2": "l55",
+            "_label": "ForcedModifierList",
+            "_detour": "g20"
+        }, {
+            "id": "automatedtest01installationid2_613__7",
+            "type": "checkbox",
+            "image": "http://image.jpg",
+            "label": "Sandwiches",
+            "select_min": 0,
+            "select_max": 11,
+            "options": [{
+                "id": "mod21",
+                "type": "checkbox",
+                "image": "http://image.jpg",
+                "label": "Lettuce",
+                "value": false,
+                "postback": false,
+                "_label": "Modifier"
+            }, {
+                "id": "mod22",
+                "type": "checkbox",
+                "image": "http://image.jpg",
+                "label": "Pickles",
+                "value": false,
+                "postback": false,
+                "_label": "Modifier"
+            }, {
+                "id": "mod23",
+                "type": "checkbox",
+                "image": "http://image.jpg",
+                "label": "Tomato",
+                "value": false,
+                "postback": false,
+                "_label": "Modifier"
+            }, {
+                "id": "mod24",
+                "type": "checkbox",
+                "image": "http://image.jpg",
+                "label": "Onion",
+                "value": false,
+                "postback": false,
+                "_label": "Modifier"
+            }, {
+                "id": "mod25",
+                "type": "checkbox",
+                "image": "http://image.jpg",
+                "label": "Deli Mustard",
+                "value": false,
+                "postback": false,
+                "_label": "Modifier"
+            }, {
+                "id": "mod26",
+                "type": "checkbox",
+                "image": "http://image.jpg",
+                "label": "Mayo",
+                "value": false,
+                "postback": false,
+                "_label": "Modifier"
+            }, {
+                "id": "mod27",
+                "type": "checkbox",
+                "image": "http://image.jpg",
+                "label": "Salt",
+                "value": false,
+                "postback": false,
+                "_label": "Modifier"
+            }, {
+                "id": "mod28",
+                "type": "checkbox",
+                "image": "http://image.jpg",
+                "label": "Pepper",
+                "value": false,
+                "postback": false,
+                "_label": "Modifier"
+            }, {
+                "id": "mod29",
+                "type": "checkbox",
+                "image": "http://image.jpg",
+                "label": "Cheese",
+                "value": false,
+                "postback": false,
+                "_label": "Modifier"
+            }, {
+                "id": "mod33",
+                "type": "checkbox",
+                "image": "http://image.jpg",
+                "label": "Bacon",
+                "value": false,
+                "postback": false,
+                "_label": "Modifier"
+            }, {
+                "id": "mod34",
+                "type": "checkbox",
+                "image": "http://image.jpg",
+                "label": "Avocado",
+                "value": false,
+                "postback": false,
+                "_label": "Modifier"
+            }],
+            "_id2": "7",
+            "_label": "ModifierCategory"
+        }]
+    };
+
     let React = require('react');
     let ReactDOM = require('react-dom');
     let injectTapEventPlugin = require('react-tap-event-plugin');
@@ -115,7 +377,7 @@ process.umask = function() { return 0; };
 
     // Render the main app react component into the app div.
     // For more details see: https://facebook.github.io/react/docs/top-level-api.html#react.render
-    ReactDOM.render(React.createElement(MenuDetail, null), document.getElementById('app'));
+    ReactDOM.render(React.createElement(MenuDetail, { data: data }), document.getElementById('app'));
 })();
 
 },{"./main.jsx":3,"./menu_detail.jsx":4,"./modifiers.jsx":5,"./radio_group.jsx":265,"react":264,"react-dom":98,"react-tap-event-plugin":102}],3:[function(require,module,exports){
@@ -355,47 +617,31 @@ const MenuDetail = React.createClass({
     },
 
     render() {
+        //  Render the menu item detail.  this.props.data contains:
+        //  { data=[ {label, label2, label3, image, ...} ], modifiers=[ ... ] }
+        var dataRecord = this.props.data.data[0];
+        console.log("status=", this.props.data.status);
         return React.createElement(
             Card,
             null,
-            React.createElement(AppBar, { title: 'Menu Item',
-                iconElementLeft: React.createElement(
-                    IconButton,
-                    null,
-                    React.createElement(NavigationClose, null)
-                ),
-                iconElementRight: React.createElement(
-                    IconMenu,
-                    { iconButtonElement: React.createElement(
-                            IconButton,
-                            null,
-                            React.createElement(MoreVertIcon, null)
-                        ) },
-                    React.createElement(MenuItem, { primaryText: 'Refresh' }),
-                    React.createElement(MenuItem, { primaryText: 'Help' }),
-                    React.createElement(MenuItem, { primaryText: 'Sign out' })
-                ) }),
+            React.createElement(AppBar, { title: dataRecord.label,
+                iconClassNameRight: 'muidocs-icon-navigation-expand-more' }),
             React.createElement(
                 CardMedia,
                 null,
-                React.createElement('img', { src: 'http://lorempixel.com/600/337/nature/' })
+                React.createElement('img', { src: dataRecord.image })
             ),
-            React.createElement(CardHeader, { title: 'Menu Item',
-                subtitle: 'Subtitle',
-                avatar: React.createElement(
-                    Avatar,
-                    null,
-                    'A12'
-                ) }),
+            React.createElement(CardHeader, { title: dataRecord.label,
+                subtitle: dataRecord.label2 }),
             React.createElement(
                 CardText,
                 null,
                 React.createElement(
                     'p',
                     null,
-                    'Description'
+                    dataRecord.label3
                 ),
-                React.createElement(Modifiers, null)
+                React.createElement(Modifiers, { data: this.props.data.modifiers })
             )
         );
     },
@@ -463,12 +709,16 @@ const Modifiers = React.createClass({
     },
 
     render() {
+        //  Render the list of Modifiers for the menu item.  this.props.data contains:
+        //  [ optionGroup1, optionGroup2, ... ]
+        var index = 0;
+        var modifierNodes = this.props.data.map(function (optionGroup) {
+            return React.createElement(RadioGroup, { index: index++, data: optionGroup });
+        });
         return React.createElement(
             'div',
             null,
-            React.createElement(RadioGroup, null),
-            React.createElement(RadioGroup, null),
-            React.createElement(RadioGroup, null)
+            modifierNodes
         );
     },
 
@@ -30009,25 +30259,46 @@ const RadioGroup = React.createClass({
     },
 
     render() {
+        //  Render the group of radio buttons.  this.props.data contains:
+        //  { id, label, select_min, select_max, options: [ { id, label, value, postback }, ... ] }
+        var dataRecord = this.props.data;
+        var valueSelected = null;
+        var optionNodes = dataRecord.options.map(function (option) {
+            var code = JSON.stringify(option, null, 2);
+            if (option.value == true) valueSelected = option.id;
+            return React.createElement(
+                RadioButton,
+                { value: option.id,
+                    label: option.label + (option.postback ? " (postback)" : ""),
+                    style: { marginBottom: 16 } },
+                React.createElement(
+                    'pre',
+                    null,
+                    React.createElement(
+                        'code',
+                        { 'class': 'json' },
+                        code
+                    )
+                )
+            );
+        });
         return React.createElement(
             Card,
             null,
-            React.createElement(CardHeader, { title: 'Title',
-                subtitle: 'Subtitle',
+            React.createElement(CardHeader, { title: dataRecord.label,
+                subtitle: "Select min " + dataRecord.select_min + ", max " + dataRecord.select_max,
                 avatar: React.createElement(
                     Avatar,
                     null,
-                    'A12'
+                    this.props.index
                 ) }),
             React.createElement(
                 CardText,
                 null,
                 React.createElement(
                     RadioButtonGroup,
-                    { name: 'shipSpeed', defaultSelected: 'not_light' },
-                    React.createElement(RadioButton, { value: 'light', label: 'My text', style: { marginBottom: 16 } }),
-                    React.createElement(RadioButton, { value: 'not_light', label: 'light speed too slow', style: { marginBottom: 16 } }),
-                    React.createElement(RadioButton, { value: 'ludicrous', label: 'go to ludicrous speed', style: { marginBottom: 16 } })
+                    { name: dataRecord.id, valueSelected: valueSelected },
+                    optionNodes
                 )
             )
         );
