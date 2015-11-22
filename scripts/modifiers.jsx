@@ -23,7 +23,7 @@ const RadioButtonGroup = require('material-ui/lib/radio-button-group');
 const Toggle = require('material-ui/lib/toggle');
 
 let RadioGroup = require('./radio_group.jsx');
-//let CheckboxGroup = require('./checkbox_group.jsx');
+let CheckboxGroup = require('./checkbox_group.jsx');
 
 const Modifiers = React.createClass({
     childContextTypes: {
@@ -54,8 +54,11 @@ const Modifiers = React.createClass({
         //  [ optionGroup1, optionGroup2, ... ]
         var index = 0;
         var modifierNodes = this.props.data.map(function (optionGroup) {
-            return (<RadioGroup index={ index++ } data={ optionGroup } />);
-        });
+            if (optionGroup.type == "radio")
+                return (<RadioGroup index={ index++ } data={ optionGroup } />);
+            else
+                return (<CheckboxGroup index={ index++ } data={ optionGroup } />);
+});
         return (
         <div>
             { modifierNodes }

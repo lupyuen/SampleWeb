@@ -150,6 +150,7 @@
     <Content Include="scripts\menu_detail.jsx" />
     <Content Include="scripts\radio_group.jsx" />
     <Content Include="scripts\modifiers.jsx" />
+    <Content Include="scripts\checkbox_group.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
