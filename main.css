@@ -11,6 +11,7 @@ body {
 
 pre code {
   font: normal 10pt Ubuntu Mono;
+  float: right;
   width: 300px;
   max-height: 300px;
 }

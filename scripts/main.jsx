@@ -1,5 +1,6 @@
 ﻿/*
 cd "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\SampleWeb\scripts"
+npm install --save react react-dom babelify babel-preset-react
 browserify -t [ babelify --presets [ react ] ] app.jsx -o app.js
 */
 

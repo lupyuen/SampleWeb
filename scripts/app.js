@@ -383,6 +383,7 @@ process.umask = function() { return 0; };
 },{"./main.jsx":3,"./menu_detail.jsx":4,"./modifiers.jsx":5,"./radio_group.jsx":265,"react":264,"react-dom":98,"react-tap-event-plugin":102}],3:[function(require,module,exports){
 /*
 cd "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\SampleWeb\scripts"
+npm install --save react react-dom babelify babel-preset-react
 browserify -t [ babelify --presets [ react ] ] app.jsx -o app.js
 */
 
@@ -626,13 +627,10 @@ const MenuDetail = React.createClass({
             null,
             React.createElement(AppBar, { title: dataRecord.label,
                 iconClassNameRight: 'muidocs-icon-navigation-expand-more' }),
-            React.createElement(
-                CardMedia,
-                null,
-                React.createElement('img', { src: dataRecord.image })
-            ),
             React.createElement(CardHeader, { title: dataRecord.label,
-                subtitle: dataRecord.label2 }),
+                subtitle: dataRecord.label2,
+                avatar: React.createElement(Avatar, { src: dataRecord.image })
+            }),
             React.createElement(
                 CardText,
                 null,
@@ -30269,8 +30267,13 @@ const RadioGroup = React.createClass({
             return React.createElement(
                 RadioButton,
                 { value: option.id,
-                    label: option.label + (option.postback ? " (postback)" : ""),
+                    label: '',
                     style: { marginBottom: 16 } },
+                React.createElement(
+                    'div',
+                    { style: { position: "relative", top: "40px", left: "50px" } },
+                    option.label + (option.postback ? " (postback)" : "")
+                ),
                 React.createElement(
                     'pre',
                     null,

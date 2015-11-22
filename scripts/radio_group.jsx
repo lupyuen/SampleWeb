@@ -56,8 +56,11 @@ const RadioGroup = React.createClass({
             if (option.value == true) valueSelected = option.id;
             return (
             <RadioButton value={ option.id } 
-                            label={ option.label + (option.postback ? " (postback)" : "") } 
-                            style={{marginBottom:16}}>
+                            label=""
+                            style={{marginBottom: 16}}>
+                <div style={{position: "relative", top: "40px", left: "50px"}}>
+                    { option.label + (option.postback ? " (postback)" : "") }
+                </div>
                 <pre><code class="json">{ code }</code></pre>
             </RadioButton>
             );

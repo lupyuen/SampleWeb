@@ -62,11 +62,10 @@ const MenuDetail = React.createClass({
         <Card>
             <AppBar title={ dataRecord.label }
                 iconClassNameRight="muidocs-icon-navigation-expand-more" />
-            <CardMedia>
-                <img src={ dataRecord.image } />
-            </CardMedia>
             <CardHeader title={ dataRecord.label }
-                  subtitle={ dataRecord.label2 } />
+                  subtitle={ dataRecord.label2 } 
+                  avatar={ <Avatar src={ dataRecord.image } /> }
+            />
             <CardText>
                 <p>{ dataRecord.label3 }</p>
                 <Modifiers data={ this.props.data.modifiers } />
